@@ -9,7 +9,7 @@ for (var i= 8 ; i<=18; i++){
   hourRow = $(`<div class="row">`);
   timeBlock = $(`<div class ="col-lg-2 time-block hour">${displayAmPm(i)}</div>`);
   taskBlock = $(`<div class ="col-lg-8"><input data-input="${i}" id="inputText${i}" class="form-control" type="text" ></div>`);
-  saveBlock = $(`<div class ="col-lg-2"><button data-id="${i}" class="btn btn-success btn-block saveBtn"><i class="fas fa-save"></i> Save</button></div>`);
+  saveBlock = $(`<div class ="col-lg-2"><button data-id="${i}" class="saveBtn"><i class="fas fa-save"></i></button></div>`);
   hourRow.append(timeBlock);
   hourRow.append(taskBlock);
   hourRow.append(saveBlock);
@@ -19,7 +19,7 @@ for (var i= 8 ; i<=18; i++){
 }
 
 // save in local storage the task assigned to a time block
-$("button.btn.btn-success").click(function() {
+$(".saveBtn").click(function() {
   var id = $(this).data("id");
   var saveText = $(this).parent().siblings().find("input").val();
   localStorage.setItem(id,saveText);
@@ -47,10 +47,9 @@ function savedTasks(hour) {
     $(`input#inputText${hour}`).val("");    
   }}
 
-  // changes color based on if hour block is past, current, or future
+  // sets color based on if hour block is past, current, or future
   function updateColor(){
-    var hour = new Date().getHours();
-    //console.log("cycling", hour);
+    var hour = moment().hour();
     for (var i= 8 ; i<=18; i++) {
       if (hour>i) {  // blocks in the past are greyed out
         $(`#inputText${i}`).addClass("past");   
@@ -62,6 +61,7 @@ function savedTasks(hour) {
         $(`#inputText${i}`).addClass("future");
   }}}
 
+  // audits task block and updates color over time
   setInterval(function(){
     updateColor();
-   },60000)
+    },60000)
