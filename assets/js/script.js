@@ -53,14 +53,15 @@ function savedTasks(hour) {
     //console.log("cycling", hour);
     for (var i= 8 ; i<=18; i++) {
       if (hour>i) {  // blocks in the past are greyed out
-        $(`#inputText${i}`).addClass("past");
-        console.log("cycling", hour, i);
-      } else if (hour==i ) { // the current hour block is red with white text
+        $(`#inputText${i}`).addClass("past");   
+        $(`#inputText${i}`).removeClass("present");          
+      } else if (hour==i) { // the current hour block is red with white text
         $(`#inputText${i}`).addClass("present");
-      } else if (hour<i ) { // future hours are green
+        $(`#inputText${i}`).removeClass("future");        
+      } else if (hour<i) { // future hours are green
         $(`#inputText${i}`).addClass("future");
   }}}
 
   setInterval(function(){
     updateColor();
-  },60000)
+   },60000)
