@@ -9,9 +9,7 @@ GIVEN I am using a daily planner to create a schedule:
 - WHEN I refresh the page THEN the saved events persist
 
 ## Build With:
-- Jquery
-- Moment
-- Javascript
+- Javascript - JQuery, Moment js
 - CSS Stylying - Bootstrap, Font Aware, Google Fonts
 - HTML
 
