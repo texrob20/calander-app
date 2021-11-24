@@ -41,8 +41,7 @@ function displayAmPm (hour) {
 function savedTasks(hour) {
   var inputval = localStorage.getItem(hour);
   if (inputval != null) {
-    $(`input#inputText${hour}`).val(inputval);
-    console.log(inputval);
+    $(`input#inputText${hour}`).val(inputval);    
   } else {
     $(`input#inputText${hour}`).val("");    
   }}
