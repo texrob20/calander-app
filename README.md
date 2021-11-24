@@ -24,3 +24,6 @@ Since the user may not refresh the page routinely, the function updateColor audi
 
 ## Demo
 <img src=https://github.com/texrob20/calander-app/blob/main/assets/scheduler-demo.png>
+
+## Deployed App
+https://texrob20.github.io/calander-app/
